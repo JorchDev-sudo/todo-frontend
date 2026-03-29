@@ -1,5 +1,5 @@
 import { render } from './views/authView.js'
-import { initAuthController } from './controllers/authController'
+import { initAuthController } from './controllers/authController.js'
 
 render()
 initAuthController()
