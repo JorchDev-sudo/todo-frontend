@@ -1,0 +1,28 @@
+import { register, login } from './api/auth.js'
+import {
+    registerButton,
+    loginButton,
+    nameInput,
+    emailInput,
+    passwordInput
+} from './views/authView.js'
+
+export function initAuthController() {
+
+    registerButton.addEventListener("click", async () => {
+        const name = nameInput.value
+        const email = emailInput.value
+        const password = passwordInput.value
+
+        const response = await register(name, email, password)
+        console.log(response)
+    })
+
+    loginButton.addEventListener("click", async () => {
+        const email = emailInput.value
+        const password = passwordInput.value
+
+        const response = await login(email, password)
+        console.log(response)
+    })
+}
