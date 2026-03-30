@@ -1,5 +1,5 @@
 //Get Users
-async function getAll() { 
+export async function getUsers() { 
     const response = fetch("http://localhost:8080/api/users", {
         method: "GET",
         headers: {

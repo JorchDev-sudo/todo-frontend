@@ -1,6 +1,10 @@
-import { render } from './views/authView.js'
-import { initAuthController } from './controllers/authController.js'
+import { initAuthFlow } from './controllers/authController.js'
+import { initDashboard } from './controllers/dashboardController.js'
 
-render()
-initAuthController()
-console.log("APP RUNNING")
+const token = localStorage.getItem("token");
+
+if (token) {
+    initDashboard();
+} else {
+    initAuthFlow();
+}

@@ -1,24 +1,22 @@
-export const registerButton = document.createElement("button")
-registerButton.textContent = "Register"
+export function createAuthView() {
+    const container = document.createElement("div")
 
-export const loginButton = document.createElement("button")
-loginButton.textContent = "Login"
+    const nameInput = document.createElement("input")
+    nameInput.placeholder = "name"
+    const emailInput = document.createElement("input")
+    emailInput.placeholder = "email"
+    const passwordInput = document.createElement("input")
+    passwordInput.placeholder = "password"
 
-export const nameInput = document.createElement("input")
-nameInput.placeholder = "Name"
+    const registerButton = document.createElement("button")
+    registerButton.textContent = "Register"
+    const loginButton = document.createElement("button")
+    loginButton.textContent = "Login"
 
-export const emailInput = document.createElement("input")
-emailInput.placeholder = "Email"
+    container.append(nameInput, emailInput, passwordInput, registerButton, loginButton)
 
-export const passwordInput = document.createElement("input")
-passwordInput.placeholder = "Password"
-
-export function render() {
-    document.body.append(
-        nameInput,
-        emailInput,
-        passwordInput,
-        registerButton,
-        loginButton
-    )
+    return {
+        container,
+        elements: { nameInput, emailInput, passwordInput, registerButton, loginButton }
+    }
 }
