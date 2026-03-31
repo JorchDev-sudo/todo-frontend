@@ -23,11 +23,6 @@ createdAtTh.innerText = "Created At"
 const tbody = document.createElement("tbody")
 const pageInfo = document.createElement("span")
 
-headingRow.append(idTh, nameTh, descriptionTh, statusTh, createdAtTh)
-thead.append(headingRow)
-table.append(thead, tbody)
-tasksContainer.append(table, pageInfo)
-
 export function renderTasks(data) {
     data.content.forEach(task => {
         const row = document.createElement("tr")
@@ -44,6 +39,11 @@ export function renderTasks(data) {
     })
 
     pageInfo.textContent = `Page ${data.number + 1} of ${data.totalPages}`
+
+    headingRow.append(idTh, nameTh, descriptionTh, statusTh, createdAtTh)
+    thead.append(headingRow)
+    table.append(thead, tbody)
+    tasksContainer.append(table, pageInfo)
 
     return {
         tasksContainer,

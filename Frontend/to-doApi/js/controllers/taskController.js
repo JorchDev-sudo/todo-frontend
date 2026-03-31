@@ -2,15 +2,13 @@ import { getTasks } from "../api/task.js"
 import { renderTasks } from "../views/taskView.js"
 
 let currentPage = 0
-const size = 10
 
 export async function loadTasks(page = 0) {
-    const data = await getTasks(page, size)
+    const data = await getTasks(page)
 
     currentPage = data.number
 
-    const tasksContainer = renderTasks(data)
-    const tasksElements = tasksContainer.tasksElements  
+    const { tasksContainer, tasksElements } = renderTasks(data)
 
     return {tasksContainer, tasksElements}
 }
