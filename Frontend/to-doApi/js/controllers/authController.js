@@ -39,9 +39,11 @@ export function initAuthFlow() {
 }
 
 function showDashboard() {
+    /*
     elements.logoutButton.addEventListener("click", () => {
         initAuthFlow()
     })
+    */
 
     initDashboard()
 }

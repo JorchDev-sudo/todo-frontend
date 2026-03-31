@@ -9,7 +9,10 @@ export async function loadTasks(page = 0) {
 
     currentPage = data.number
 
-    renderTasks(data)
+    const result = renderTasks(data)
+    const elements = result.elements  
+
+    return {result, elements}
 }
 
 /*

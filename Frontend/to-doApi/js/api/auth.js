@@ -28,6 +28,7 @@ export async function login(email, password) {
     });
 
     const data = await response.json();
+    
     localStorage.setItem("jwt", data.token)
     return data
 }
