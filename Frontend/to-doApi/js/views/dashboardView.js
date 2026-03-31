@@ -2,7 +2,7 @@ export function createDashboardView() {
     const container = document.createElement("div")
 
     const title = document.createElement("h2")
-    title.textContent = "Bienvenido!"
+    title.textContent = " Welcome!"
 
     const logoutButton = document.createElement("button")
     logoutButton.textContent = "Logout"

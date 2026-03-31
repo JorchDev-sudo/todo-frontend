@@ -1,5 +1,5 @@
 import { createAuthView } from '../views/authView.js'
-import { createDashboardView } from '../views/dashboardView.js'
+import { initDashboard } from './dashboardController.js' 
 import { render } from '../render.js'
 import { register, login } from '../api/auth.js'
 
@@ -14,7 +14,7 @@ export function initAuthFlow() {
 
         const registerResponse = await register(name, email, password)
 
-        if (registerResponse) {
+        if (registerResponse.status = 200) {
             const loginResponse = await login(email, password)
             
             if (loginResponse.token) {
@@ -39,11 +39,9 @@ export function initAuthFlow() {
 }
 
 function showDashboard() {
-    const { container, elements } = createDashboardView()
-
     elements.logoutButton.addEventListener("click", () => {
         initAuthFlow()
     })
 
-    render(container)
+    initDashboard()
 }

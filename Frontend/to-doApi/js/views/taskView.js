@@ -1,11 +1,36 @@
-const tbody = document.getElementById("tasksTableBody");
-const pageInfo = document.getElementById("pageInfo");
+const container = document.createElement("div")
+const table = document.createElement("table")
+
+const thead = document.createElement("thead")
+
+const headingRow = document.createElement("tr")
+
+const idTh = document.createElement("th")
+idTh.innerText = "Id"
+
+const nameTh = document.createElement("th")
+nameTh.innerText = "Name"
+
+const descriptionTh = document.createElement("th")
+descriptionTh.innerText = "Description"
+
+const statusTh = document.createElement("th")
+statusTh.innerText = "Status"
+
+const createdAtTh = document.createElement("th")
+createdAtTh.innerText = "Created At"
+
+const tbody = document.createElement("tbody")
+const pageInfo = document.createElement("span")
+
+headingRow.append(idTh, nameTh, descriptionTh, statusTh, createdAtTh)
+thead.append(headingRow)
+table.append(thead, tbody)
+container.append(table, pageInfo)
 
 export function renderTasks(data) {
-    tbody.innerHTML = "";
-
     data.content.forEach(task => {
-        const row = document.createElement("tr");
+        const row = document.createElement("tr")
 
         row.innerHTML = `
             <td>${task.id}</td>
@@ -15,8 +40,13 @@ export function renderTasks(data) {
             <td>${task.createdAt}</td>
         `;
 
-        tbody.appendChild(row);
-    });
+        tbody.appendChild(row)
+    })
 
-    pageInfo.textContent = `Page ${data.number + 1} of ${data.totalPages}`;
+    pageInfo.textContent = `Page ${data.number + 1} of ${data.totalPages}`
+
+    return {
+        container,
+        elements: {table, pageInfo}
+    }
 }
