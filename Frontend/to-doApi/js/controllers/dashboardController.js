@@ -7,5 +7,7 @@ export async function initDashboard() {
     const { dashboardContainer, dashboardElements } = createDashboardView()
     const { tasksContainer, tasksElements } = loadTasks()
 
-    render(dashboardContainer, tasksContainer)
+    dashboardContainer.appendChild(tasksContainer)
+
+    render(dashboardContainer)
 }

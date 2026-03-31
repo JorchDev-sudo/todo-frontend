@@ -1,5 +1,5 @@
 export function createDashboardView() {
-    const container = document.createElement("div")
+    const dashboardContainer = document.createElement("div")
 
     const title = document.createElement("h2")
     title.textContent = " Welcome!"
@@ -7,10 +7,10 @@ export function createDashboardView() {
     const logoutButton = document.createElement("button")
     logoutButton.textContent = "Logout"
 
-    container.append(title, logoutButton)
+    dashboardContainer.append(title, logoutButton)
 
     return {
-        container,
-        elements: { logoutButton }
+        dashboardContainer,
+        dashboardElements: { logoutButton }
     }
 }

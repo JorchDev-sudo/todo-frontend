@@ -1,4 +1,4 @@
-const container = document.createElement("div")
+const tasksContainer = document.createElement("div")
 const table = document.createElement("table")
 
 const thead = document.createElement("thead")
@@ -26,7 +26,7 @@ const pageInfo = document.createElement("span")
 headingRow.append(idTh, nameTh, descriptionTh, statusTh, createdAtTh)
 thead.append(headingRow)
 table.append(thead, tbody)
-container.append(table, pageInfo)
+tasksContainer.append(table, pageInfo)
 
 export function renderTasks(data) {
     data.content.forEach(task => {
@@ -46,7 +46,7 @@ export function renderTasks(data) {
     pageInfo.textContent = `Page ${data.number + 1} of ${data.totalPages}`
 
     return {
-        container,
-        elements: {table, pageInfo}
+        tasksContainer,
+        tasksElements: {table, pageInfo}
     }
 }
